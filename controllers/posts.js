@@ -1,4 +1,5 @@
 var Post = require("../models/post");
+var PostSchema = require("../models/post_schema")
 var User = require("../models/user");
 
 var PostsController = {
@@ -28,6 +29,8 @@ var PostsController = {
     var post = new Post(req.body);
     post.save(function(err) {
       if (err) { throw err; }
+			PostSchema.index({'$**': 'text'});
+			
 			res.status(201).redirect("/posts");
 		});
 	},

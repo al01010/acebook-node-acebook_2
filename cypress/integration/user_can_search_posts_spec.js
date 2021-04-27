@@ -1,8 +1,8 @@
 describe('Timeline', function() {
-  before(async (done) => {
-    await cy.task("db:drop");
-    done();
-  })
+  // before(async (done) => {
+  //   await cy.task("db:drop");
+  //   done();
+  // })
 
   beforeEach(() => {
     cy.signupAndLogin()
