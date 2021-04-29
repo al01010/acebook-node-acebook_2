@@ -14,8 +14,9 @@ const flash = require('connect-flash');
 var homeRouter = require('./routes/home');
 var postsRouter = require('./routes/posts');
 var usersRouter = require('./routes/users');
-
+var hbs = require('hbs');
 var app = express();
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
