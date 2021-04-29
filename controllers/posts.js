@@ -52,6 +52,7 @@ var PostsController = {
 	},
 
 	Delete: function (req, res) {
+		console.log(req.params.id)
 		Post.findByIdAndRemove(req.params.id, function (err) {
 			if (err) {
 				throw err;
