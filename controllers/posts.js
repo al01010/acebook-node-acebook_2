@@ -63,6 +63,9 @@ var PostsController = {
   },
 
 	EditPage: async function (req, res) {
+		if (!req.session.user_id) {
+			res.redirect("/users/login");
+		}
 		const { id } = req.params;
 		const post = await Post.findById(id);
 		res.render("posts/edit", {
