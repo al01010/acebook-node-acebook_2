@@ -63,7 +63,7 @@
         <p class="lead">Keep up-to-date with what the world is posting on Acebook! </p>
         <p id="post-button">
           <button type="button" class="btn btn-secondary btn-block">
-          <a class="new-post-link" href="/posts/new">New post</a>
+            <a class="new-post-link" href="/posts/new">New post</a>
           </button>
         </p>
       </div>
@@ -86,30 +86,31 @@
             </div>
             <p id="post-auth">
               {{#each this.author}}
-              Posted by <p>{{this.username}}</p>
+              Posted by {{this.username}}
               {{/each}}
               at {{dateFormat this.createdAt "HH:MM, DD/MM/YYYY"}}
               {{#if updatedAt}}
-                <p>
-                  Updated at {{dateFormat this.updatedAt "HH:MM, DD/MM/YYYY"}}
-                </p>
-              {{/if}}
-              {{#each this.author}}
-                {{#if_eq ../../userId._id this.id}}
-                  <p>
-                      <div class="btn-group btn-group-lg" role="group" aria-label="...">
-                        <form action='/posts/{{../this.id}}/delete' method='post'>
-                          <input class="btn btn-outline-secondary" type='submit' value='Delete'>
-                        </form>
-                      </div>
-                      <div id ="edit-button" class="btn-group" role="group" aria-label="...">
-                        <form action='/posts/{{../this.id}}/edit' method='get'>
-                          <input class="btn btn-outline-secondary" type='submit' value='Edit'>
-                        </form>
-                      </div>
-                  </p>
-                {{/if_eq}}
-              {{/each}}
+            <p>
+              Updated at {{dateFormat this.updatedAt "HH:MM, DD/MM/YYYY"}}
+            </p>
+            {{/if}}
+            {{#each this.author}}
+            </p>
+            {{#if_eq ../../userId._id this.id}}
+            <p>
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+              <form action='/posts/{{../this.id}}/delete' method='post'>
+                <input class="btn btn-outline-secondary" type='submit' value='Delete'>
+              </form>
+            </div>
+            <div id="edit-button" class="btn-group" role="group" aria-label="...">
+              <form action='/posts/{{../this.id}}/edit' method='get'>
+                <input class="btn btn-outline-secondary" type='submit' value='Edit'>
+              </form>
+            </div>
+            </p>
+            {{/if_eq}}
+            {{/each}}
 
             <div class="card" id="collapseExample">
               <div class="card card-body">
@@ -117,20 +118,15 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item" id='comments'>
                     {{#each this.comments}}
-                      <p>{{this.comment}}</p>
-                        Posted by
-                        {{log this.author.id }}
-                        {{!-- {{#each this.author}}       --}}
-                          <p>{{this.author.username}}</p>
-                        {{!-- {{/each}} --}}
-                      at {{dateFormat this.createdAt "HH:MM, DD/MM/YYYY"}}
-                          {{#if_eq ../../userId._id this.author._id}}
-                          <form method="post" action="/posts/{{this.id}}/delete-comment"><input type="submit" value="Delete">
-                          </form>
-                          {{/if_eq}}
+                    <p>{{this.comment}}</p>
+                    Posted by {{this.author.username}}
+                    at {{dateFormat this.createdAt "HH:MM, DD/MM/YYYY"}}
+                    {{#if_eq ../../userId._id this.author._id}}
+                    <form method="post" action="/posts/{{this.id}}/delete-comment"><input type="submit" value="Delete">
+                    </form>
+                    {{/if_eq}}
                     {{/each}}
                   </li>
-
                 </ul>
 
                 <p>
@@ -178,10 +174,12 @@
   #main {
     padding: 40px;
   }
+
   .new-post-link {
     text-decoration: none;
     color: white;
   }
+
   #post-button {
     padding-top: 10px;
     padding-bottom: 20px;
