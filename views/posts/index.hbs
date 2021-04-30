@@ -115,7 +115,7 @@
                         Posted by
                         {{log this.author.id }}
                         {{!-- {{#each this.author}}       --}}
-                          <a href="/users/{{this.author.id}}">{{this.author.username}}</a>
+                          <p>{{this.author.username}}</p>
                         {{!-- {{/each}} --}}
                       at {{dateFormat this.createdAt "HH:MM, DD/MM/YYYY"}}
                           {{#if_eq ../../userId._id this.author._id}}
