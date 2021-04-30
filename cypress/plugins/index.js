@@ -18,7 +18,7 @@ module.exports = (on) => {
     'db:drop': async () => {
       const conn = mongoose.createConnection('mongodb://localhost/acebook_test');
 
-      return conn.dropDatabase();
+      return await conn.dropDatabase();
     }
   })
 }

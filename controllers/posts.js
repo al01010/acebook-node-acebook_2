@@ -5,7 +5,7 @@ var User = require("../models/user");
 var PostsController = {
 	Index: function (req, res) {
 		if (!req.session.user_id) {
-			res.redirect("/users/login");
+			return res.redirect("/users/login");
 		}
 
 		Post.find(async function (err) {
@@ -25,13 +25,13 @@ var PostsController = {
 	},
 	New: function (req, res) {
 		if (!req.session.user_id) {
-			res.redirect("/users/login");
+			return res.redirect("/users/login");
 		}
 		res.render("posts/new", {title: 'New Post'});
 	},
 	Create: async function (req, res) {
 		if (!req.session.user_id) {
-			res.redirect("/users/login");
+			return res.redirect("/users/login");
 		}
 		var user = await User.findById(req.session.user_id);
 
@@ -93,7 +93,7 @@ var PostsController = {
 	},
 	Search: async function (req, res) {
 		if (!req.session.user_id) {
-			res.redirect("/users/login");
+			return res.redirect("/users/login");
 		}
 		const querySearch = req.query.search;
 		var postCollection = [];

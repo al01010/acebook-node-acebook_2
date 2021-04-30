@@ -15,6 +15,11 @@ describe("Post model", function () {
 		expect(post.message).toEqual("some message");
 	});
 
+	it('has an author', function() {
+		var post = new Post({message: "new post!"});
+		expect(post.author.username).not.toBeNull();
+	})
+
 	it("can list all posts", function (done) {
 		Post.find(function (err, posts) {
 			expect(err).toBeNull();
