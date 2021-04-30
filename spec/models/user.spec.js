@@ -17,5 +17,19 @@ describe('User model', function() {
     expect(user.bio).toEqual("I have not written a bio yet");
   });
 
+  it('does not allow you to sign up with a duplicate email', function(done) {
+    var user1 = new User({ email: 'email@test.co.uk', password: 'test123', username: 'user1'})
+    var user2 = new User({ email: 'email@test.co.uk', password: 'socool123', username: 'user2'})
+
+    user1.save(() => {
+      user2.save(() => {
+        User.find(function(err, users) {
+          expect(err).toBeNull();
+          expect(users).not.toContain(user2);
+          done();
+        });
+      });
+    });
+  });
 
 })
