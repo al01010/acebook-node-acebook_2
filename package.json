@@ -29,7 +29,6 @@
     "hbs": "^4.1.2",
     "helper-date": "^1.0.1",
     "http-errors": "~1.6.3",
-    "install": "^0.13.0",
     "mongoose": "^5.12.5",
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
