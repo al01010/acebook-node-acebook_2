@@ -1,8 +1,114 @@
 # Acebook
 
-This is a Node.js template for the Acebook engineering project.
+## User Stories
 
-It uses:
+### These are the user stories we wrote for our project:
+
+MVP
+```
+As a user,
+so that I can use Acebook,
+I want to sign up with an account.
+```
+
+```
+As a user,
+so that I can return to my Acebook account,
+I want to log in to my account.
+```
+
+```
+As a user,
+so that I can tell people about my day,
+I want to create a new post.
+```
+
+```
+As a user,
+so that I can see what people are up to,
+I want to be able to see all the posts on my timeline.
+```
+
+```
+As a user,
+so that I can make changes to what I have posted,
+I would like to update my posts.
+```
+
+```
+As a user,
+so that I can remove a post if I've changed my mind,
+I want to be able to delete a post.
+```
+
+Extras:
+
+```
+As a user,
+so that I can see when people are posting,
+I want to see the date at which the message was posted.
+```
+
+```
+As a user,
+so that I can see when people are updating their posts,
+I want to see the date at which the message was updated.
+```
+
+```
+As a user,
+so I can keep up-to-date,
+I want to see the posts in reverse chronological order
+```
+
+```
+As a user,
+so that people who are not signed up cannot see my posts,
+I don’t want those without an account to access any pages except the homepage. 
+
+```
+
+```
+As a user,
+so that I can comment on other peoples post,
+I want to add a comment to a post 
+
+```
+
+```
+As a user,
+so that I can delete my comment, 
+I want to delete a comment to a post
+
+```
+
+```
+As a user, 
+so I can keep my profile up to date, 
+I would like to edit my profile information.
+```
+
+```
+As a user,
+so that people can see who I am,
+I would like to set a profile photo.
+```
+
+```
+As a user, 
+So that I can share my holiday pictures, 
+I want to be able to post an image with my message
+```
+
+```
+As a user, 
+so that other people cannot edit and delete my posts,
+I want to be the only person able to do this.
+```
+
+## Technologies
+
+These are the technologies we used for our Acebook project:
 - [Express](https://expressjs.com/) web framework for Node.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
 - [Handlebars](https://handlebarsjs.com/) to render view templates.
@@ -15,7 +121,7 @@ It uses:
 
 https://trello.com/b/ibUZEbpH/acebook2
 
-## Quickstart
+## Project setup
 
 ### Install Node.js
 
