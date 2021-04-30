@@ -21,7 +21,6 @@ var PostsController = {
         .sort({ createdAt: "desc" })
         .populate({ path: "comments", populate: { path: "author" } });
 			res.render("posts/index", { posts: posts, userId: user, title: 'Homepage'});
-			console.log(posts[0].author)
 		});
 	},
 	New: function (req, res) {
