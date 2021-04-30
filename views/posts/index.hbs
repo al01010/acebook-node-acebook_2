@@ -40,7 +40,7 @@
               Settings
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/users/{{userId._id}}/edit">Profile Settings</a></li>
+              <li><a class="dropdown-item" href="/users/{{userI._id}}/edit">Profile Settings</a></li>
             </ul>
           </li>
           <li class="nav-item active">
@@ -61,13 +61,19 @@
       <div class="container-fluid">
         <h1 class="display-4">Timeline</h1>
         <p class="lead">Keep up-to-date with what the world is posting on Acebook! </p>
+        <p id="post-button">
+          <button type="button" class="btn btn-secondary btn-block">
+          <a class="new-post-link" href="/posts/new">New post</a>
+          </button>
+        </p>
       </div>
     </div>
+
 
     <div class="posts">
       <ul class="list-group list-group-flush">
         {{#each posts}}
-        
+
         <div class="container-fluid">
           <li class="list-group-item">
             <p id="post-msg">
@@ -75,7 +81,7 @@
             </p>
             <div>
               {{#each images}}
-              <img src="{{this.url}}" alt="image" class="class img-fluid" width="200" height="200";>
+              <img src="{{this.url}}" alt="image" class="class img-fluid" width="200" height="200" ;>
               {{/each}}
             </div>
             <p id="post-auth">
@@ -84,22 +90,22 @@
               {{/each}}
               at {{dateFormat this.createdAt "HH:MM, DD/MM/YYYY"}}
               {{#if updatedAt}}
-                <p>
-                  Updated at {{dateFormat this.updatedAt "HH:MM, DD/MM/YYYY"}}
-                </p>
-              {{/if}}
-                  <p>
-                      <div class="btn-group btn-group-lg" role="group" aria-label="...">
-                        <form action='/posts/{{this.id}}/delete' method='post'>
-                          <input class="btn btn-outline-secondary" type='submit' value='Delete'>
-                        </form>
-                      </div>
-                      <div class="btn-group" role="group" aria-label="...">
-                        <form action='/posts/{{this.id}}/edit' method='get'>
-                          <input class="btn btn-outline-secondary" type='submit' value='Edit'>
-                        </form>
-                      </div>
-                  </p>
+            <p>
+              Updated at {{dateFormat this.updatedAt "HH:MM, DD/MM/YYYY"}}
+            </p>
+            {{/if}}
+            <p>
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+              <form action='/posts/{{this.id}}/delete' method='post'>
+                <input class="btn btn-outline-secondary" type='submit' value='Delete'>
+              </form>
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+              <form action='/posts/{{this.id}}/edit' method='get'>
+                <input class="btn btn-outline-secondary" type='submit' value='Edit'>
+              </form>
+            </div>
+            </p>
 
 
             <div class="card" id="collapseExample">
@@ -140,10 +146,6 @@
         {{/each}}
       </ul>
     </div>
-    <div class="jumbotron jumbotron-fluid">
-      <button type="button" class="btn btn-outline-secondary btn-block"><a class="new-post-link" href="/posts/new">New
-          post</a></button>
-    </div>
   </div>
 
   <footer>
@@ -170,6 +172,15 @@
   #main {
     padding: 40px;
   }
+  .new-post-link {
+    text-decoration: none;
+    color: white;
+  }
+  #post-button {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
   #post-msg {
     font-size: 30px
   }
