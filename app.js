@@ -8,6 +8,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 // var exphbs = require("express-handlebars")
+var _ = require("lodash")
 
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -23,6 +24,15 @@ var hbs = require('hbs');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+hbs.registerHelper('countLikes', (arrayOfIds) => {
+  return _.uniq(arrayOfIds).length;
+})
+
+// hbs.registerHelper('hasLiked', (arrayOfIds, userId) => {
+//   console.log(arrayOfIds)
+//   console.log(userId.toString())
+//   return true;
+// })
 
 // app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');

@@ -88,6 +88,14 @@
                   Updated at {{dateFormat this.updatedAt "HH:MM, DD/MM/YYYY"}}
                 </p>
               {{/if}}
+              <p>
+                {{!-- {{#if (hasLiked this.likes userId._id)}} --}}
+                <form action='/posts/like/{{this.id}}' method='post'>
+                <input type="submit" value="Like">
+                </form>
+                {{!-- {{/if}} --}}
+            <p class='likes'>Likes {{countLikes this.likes}}</p>
+              </p>
                   <p>
                       <div class="btn-group btn-group-lg" role="group" aria-label="...">
                         <form action='/posts/{{this.id}}/delete' method='post'>

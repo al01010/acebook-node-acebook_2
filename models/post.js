@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
+var _ = require("lodash")
 
 var PostSchema = new mongoose.Schema(
 	{
@@ -8,23 +9,30 @@ var PostSchema = new mongoose.Schema(
 				ref: "User",
 			},
 		],
-	message: String,
-	comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-    images: [
+		message: String,
+		comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+		likes: [{ type: String }],
+		images: [
 			{
 				url: String,
 				filename: String,
 			},
 		],
-	
-	}, {
+	},
+	{
 		timestamps: { createdAt: true, updatedAt: true },
-	}, 
+	}
 );
 
+PostSchema.pre('save', function (next) {
+	console.log([...this.likes])
+  this.likes = _.uniq(this.likes.map((like) => like.toString()));
+	console.log(this.likes)
+  next();
+});
 
-PostSchema.index({'$**': 'text'});
+PostSchema.index({ "$**": "text" });
 
-var Post = mongoose.model('Post', PostSchema);
+var Post = mongoose.model("Post", PostSchema);
 
 module.exports = Post;

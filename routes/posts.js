@@ -14,6 +14,7 @@ router.get('/:id/edit', PostsController.EditPage);
 router.post('/edit/:id', PostsController.Edit);
 router.get('/search', PostsController.Search);
 router.post('/:id/comment', PostsController.Comment);
-router.post('/:id/delete-comment', PostsController.DeleteComment)
+router.post('/:id/delete-comment', PostsController.DeleteComment);
+router.post('/like/:id', PostsController.LikePost);
 
 module.exports = router;

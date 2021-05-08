@@ -94,9 +94,9 @@ var UsersController = {
     if (!req.session.user_id){
       res.redirect('/users/login')
     }
-    console.log(req.body)
+    
     const user = await User.findByIdAndUpdate(req.session.user_id, {bio: req.body.message, profilePicture: req.body.profilePic});
-    console.log(user)
+
     res.status(201).redirect(`/users/${user._id}`);
   },
 	Profile: async (req, res) => {
